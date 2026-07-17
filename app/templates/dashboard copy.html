@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Gestão de Vendas
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+
+<div class="topbar">
+
+<div>
+🔍
+</div>
+
+
+<div>
+👩🏻
+</div>
+
+
+</div>
+
+
+</header>
+
+
+
+
+<nav>
+
+
+<a>
+Início
+</a>
+
+<a>
+Clientes
+</a>
+
+<a>
+Leads
+</a>
+
+<a>
+Oportunidades
+</a>
+
+<a>
+Relatórios
+</a>
+
+
+</nav>
+
+
+
+
+<section class="pesquisa">
+
+
+<h2>
+Pesquisa de Cliente
+</h2>
+
+
+<div>
+
+
+<input 
+placeholder="🔍 Pesquisar cliente">
+
+
+<button>
+Pesquisar
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="leads">
+
+
+<div class="titulo">
+
+
+<h2>
+Leads Atribuídos
+</h2>
+
+
+
+<form action="/atualizar" method="GET" onsubmit="mostrarAtualizacao()">
+<button title="Atualizar" onclick="atualizarTabela()">
+
+⟳
+
+</button>
+</form>
+
+
+</div>
+
+
+
+<hr>
+
+
+
+<div id="tabela-clientes">
+{% for lead in leads %}
+
+<div class="lead">
+
+<span>
+{{lead.nome}}
+</span>
+
+</div>
+
+{% endfor %} 
+
+</div>
+
+
+
+{% if leads %}
+
+<form action="/assumir" method="POST">
+
+<button>
+Assumir
+</button>
+
+
+</form>
+
+{% endif %}
+
+
+
+</section>
+
+
+
+
+<footer>
+
+
+Rodapé
+
+</footer>
+
+<script>
+
+function atualizarTabela(){
+
+    const tabela = document.getElementById(
+        "tabela-clientes"
+    );
+
+
+    tabela.classList.add(
+        "carregando"
+    );
+
+
+    setTimeout(function(){
+
+        tabela.classList.remove(
+            "carregando"
+        );
+
+    }, 2000);
+
+}
+
+
+function mostrarAtualizacao(){
+
+    const tabela = document.getElementById(
+        "tabela-clientes"
+    );
+
+
+    if(tabela){
+
+        tabela.classList.add(
+            "carregando"
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

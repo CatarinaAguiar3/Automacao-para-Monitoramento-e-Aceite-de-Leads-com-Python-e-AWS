@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Gestão de Vendas
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+
+<body>
+
+
+<header>
+
+
+<header>
+
+<div class="topbar">
+
+    <div class="nome-sistema">
+
+        <div class="titulo-sistema">
+            Sistema de Gestão de Leads
+        </div>
+
+        <div class="subtitulo-sistema">
+            (Demonstração)
+        </div>
+
+    </div>
+
+    <div class="barra-topo">
+
+        <input 
+            class="input-pesquisa"
+            placeholder="Pesquisar ...">
+
+    </div>
+
+<div>
+    <img 
+        src="{{ url_for('static', filename='images/Perfil.png') }}"
+        class="perfil"
+    >
+</div>
+
+</div>
+
+
+
+</header>
+
+
+
+
+<nav>
+
+
+<a>
+Início
+</a>
+
+<a>
+Clientes
+</a>
+
+<a>
+Leads
+</a>
+
+<a>
+Oportunidades
+</a>
+
+<a>
+Relatórios
+</a>
+
+
+</nav>
+
+
+
+
+<section class="pesquisa">
+
+    <h2>
+        Pesquisa de Cliente
+    </h2>
+
+    <div class="area-pesquisa">
+
+        <input 
+            class="input-pesquisa"
+            placeholder="Pesquisar cliente">
+
+
+
+    </div>
+    <br>
+    <button>
+    Pesquisar
+</button>
+
+</section>
+
+
+</section>
+
+
+
+
+
+
+<section class="leads">
+
+
+<div class="titulo">
+
+
+<h2>
+Leads Atribuídos
+</h2>
+
+
+
+<form action="/atualizar" method="GET" onsubmit="mostrarAtualizacao()">
+<button title="Atualizar" onclick="atualizarTabela()">
+
+        <img 
+            src="{{ url_for('static', filename='images/Atualizar.png') }}"
+            class="icone-atualizar"
+        >
+
+</button>
+</form>
+
+
+</div>
+
+
+
+<hr>
+
+
+
+<div id="tabela-clientes">
+    <div id="loading" class="loading">
+    <div class="spinner"></div>
+</div>
+{% for lead in leads %}
+
+<div class="lead">
+
+<span>
+{{lead.nome}}
+</span>
+
+</div>
+
+{% endfor %} 
+</div>
+
+
+{% if leads %}
+
+<br>
+
+<form action="/assumir" method="POST">
+
+<button>
+Assumir
+</button>
+
+
+</form>
+
+{% endif %}
+
+
+
+</section>
+
+
+
+
+
+<footer>
+    Sistema de Gestão de Leads  |  Versão Demonstrativa  |  Desenvolvido por Catarina Aguiar
+</footer>
+
+
+
+<script>
+function atualizarTabela(){
+
+    const loading = document.getElementById(
+        "loading"
+    );
+
+
+    loading.style.display = "flex";
+
+
+    setTimeout(function(){
+
+        loading.style.display = "none";
+
+    }, 2000);
+
+}
+</script>
+
+
+</body>
+
+</html>

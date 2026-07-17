@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Cliente assumido
+</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="redirect-box">
+
+
+<h2>
+✔ Cliente assumido 
+</h2>
+
+
+<p>
+{{cliente.nome}}
+</p>
+
+<!--
+<a href="/fechar_modal" class="slds-icon-utility-close">
+
+Voltar
+
+</a>
+-->
+
+<form action="/fechar_modal" method="GET">
+
+    <button class="botao-voltar slds-icon-utility-close">
+        Voltar
+    </button>
+
+</form>
+
+
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+Login | Gestão de Vendas
+</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+
+<h1>
+Gestão de Vendas
+</h1>
+
+
+<form action="/login" method="POST">
+
+
+<label>
+Nome do usuário
+</label>
+
+<input 
+id="username"
+type="text"
+name="usuario"
+required>
+
+
+<label>
+Senha
+</label>
+
+<input
+id="password"
+type="password"
+name="senha"
+required>
+
+
+<button id="Login">
+Login
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+</body>
+
+</html>
